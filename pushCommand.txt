@@ -1,0 +1,6 @@
+git init
+git remote add origin https://github.com/aaronkopplin/Metallic-Desktop
+
+git add .
+git commit -m "commit message"
+git push origin master
