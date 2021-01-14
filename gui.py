@@ -210,7 +210,7 @@ class Ui_MainWindow(object):
         self.search_bar.setObjectName(u"search_bar")
         sizePolicy1.setHeightForWidth(self.search_bar.sizePolicy().hasHeightForWidth())
         self.search_bar.setSizePolicy(sizePolicy1)
-        self.search_bar.setMinimumSize(QSize(0, 20))
+        self.search_bar.setMinimumSize(QSize(262, 20))
         self.search_bar.setMaximumSize(QSize(244, 20))
         self.search_bar.setStyleSheet(u"background-color: white; border-radius: 5px; ")
 
@@ -234,7 +234,9 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
         self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 262, 462))
         self.verticalLayout_6 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_6.setSpacing(0)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 9, 0, 0)
         self.frame_6 = QFrame(self.scrollAreaWidgetContents_2)
         self.frame_6.setObjectName(u"frame_6")
         sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Maximum)
@@ -298,6 +300,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_7.addWidget(self.label_6)
 
+        self.label_14 = QLabel(self.frame_7)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setStyleSheet(u"color: grey;")
+
+        self.verticalLayout_7.addWidget(self.label_14)
+
 
         self.horizontalLayout_8.addWidget(self.frame_7)
 
@@ -325,16 +333,27 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_5.addWidget(self.frame_8)
 
-        self.frame_3 = QFrame(self.main_frame)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(30, 0))
-        self.frame_3.setStyleSheet(u"border-radius: 10px;")
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_13 = QVBoxLayout(self.frame_3)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.frame_10 = QFrame(self.frame_3)
+        self.frame_19 = QFrame(self.main_frame)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setStyleSheet(u"border: none;")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_20 = QVBoxLayout(self.frame_19)
+        self.verticalLayout_20.setSpacing(6)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.label_8 = QLabel(self.frame_19)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMinimumSize(QSize(0, 30))
+        self.label_8.setStyleSheet(u"background-color: rgb(62, 51, 186); \n"
+"border-radius: 10px; \n"
+"color: white; \n"
+"font-size: 20px;")
+        self.label_8.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_20.addWidget(self.label_8)
+
+        self.frame_10 = QFrame(self.frame_19)
         self.frame_10.setObjectName(u"frame_10")
         self.frame_10.setStyleSheet(u"background-color: rgb(255, 255, 255); border-radius: 10px; border: none;")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
@@ -343,22 +362,44 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_19 = QVBoxLayout()
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.payments_scroll_area = QScrollArea(self.frame_10)
         self.payments_scroll_area.setObjectName(u"payments_scroll_area")
         self.payments_scroll_area.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 549, 438))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 547, 400))
         self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(9, 9, 9, 9)
+        self.verticalLayout_17 = QVBoxLayout()
+        self.verticalLayout_17.setSpacing(0)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_4.addItem(self.verticalSpacer)
+        self.verticalLayout_17.addItem(self.verticalSpacer)
 
+        self.label_11 = QLabel(self.scrollAreaWidgetContents)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy8)
+        self.label_11.setMinimumSize(QSize(0, 30))
+        self.label_11.setStyleSheet(u"color: grey;")
+        self.label_11.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_17.addWidget(self.label_11)
+
+        self.horizontalLayout_18 = QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.frame_15 = QFrame(self.scrollAreaWidgetContents)
         self.frame_15.setObjectName(u"frame_15")
-        sizePolicy7.setHeightForWidth(self.frame_15.sizePolicy().hasHeightForWidth())
-        self.frame_15.setSizePolicy(sizePolicy7)
+        sizePolicy4.setHeightForWidth(self.frame_15.sizePolicy().hasHeightForWidth())
+        self.frame_15.setSizePolicy(sizePolicy4)
         self.frame_15.setFrameShape(QFrame.StyledPanel)
         self.frame_15.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_15)
@@ -398,23 +439,23 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.label_9)
 
-        self.label_11 = QLabel(self.frame_12)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setStyleSheet(u"color: grey;")
-        self.label_11.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_4 = QLabel(self.frame_12)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setStyleSheet(u"color: grey;")
+        self.label_4.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.verticalLayout_10.addWidget(self.label_11)
+        self.verticalLayout_10.addWidget(self.label_4)
 
 
         self.horizontalLayout_10.addWidget(self.frame_12)
 
         self.payment_avi = QLabel(self.frame_9)
         self.payment_avi.setObjectName(u"payment_avi")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.MinimumExpanding)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(self.payment_avi.sizePolicy().hasHeightForWidth())
-        self.payment_avi.setSizePolicy(sizePolicy8)
+        sizePolicy9 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.MinimumExpanding)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.payment_avi.sizePolicy().hasHeightForWidth())
+        self.payment_avi.setSizePolicy(sizePolicy9)
         self.payment_avi.setMaximumSize(QSize(50, 50))
         self.payment_avi.setStyleSheet(u"border-radius: 25px;\n"
 "border: 2px;\n"
@@ -427,12 +468,36 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.frame_9)
 
 
-        self.verticalLayout_4.addWidget(self.frame_15)
+        self.horizontalLayout_18.addWidget(self.frame_15)
 
+
+        self.verticalLayout_17.addLayout(self.horizontalLayout_18)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_17)
+
+        self.verticalLayout_18 = QVBoxLayout()
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.label_12 = QLabel(self.scrollAreaWidgetContents)
+        self.label_12.setObjectName(u"label_12")
+        sizePolicy10 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy10)
+        self.label_12.setMinimumSize(QSize(0, 30))
+        self.label_12.setStyleSheet(u"color: grey;")
+        self.label_12.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_18.addWidget(self.label_12)
+
+        self.horizontalLayout_19 = QHBoxLayout()
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
         self.frame_16 = QFrame(self.scrollAreaWidgetContents)
         self.frame_16.setObjectName(u"frame_16")
-        sizePolicy7.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
-        self.frame_16.setSizePolicy(sizePolicy7)
+        sizePolicy8.setHeightForWidth(self.frame_16.sizePolicy().hasHeightForWidth())
+        self.frame_16.setSizePolicy(sizePolicy8)
         self.frame_16.setFrameShape(QFrame.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_13 = QHBoxLayout(self.frame_16)
@@ -441,11 +506,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.frame_13 = QFrame(self.frame_16)
         self.frame_13.setObjectName(u"frame_13")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
-        self.frame_13.setSizePolicy(sizePolicy9)
+        sizePolicy11 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.frame_13.sizePolicy().hasHeightForWidth())
+        self.frame_13.setSizePolicy(sizePolicy11)
         self.frame_13.setMinimumSize(QSize(300, 0))
         self.frame_13.setStyleSheet(u"background-color: rgb(62, 51, 186)")
         self.frame_13.setFrameShape(QFrame.StyledPanel)
@@ -454,8 +519,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.payment_avi_2 = QLabel(self.frame_13)
         self.payment_avi_2.setObjectName(u"payment_avi_2")
-        sizePolicy8.setHeightForWidth(self.payment_avi_2.sizePolicy().hasHeightForWidth())
-        self.payment_avi_2.setSizePolicy(sizePolicy8)
+        sizePolicy9.setHeightForWidth(self.payment_avi_2.sizePolicy().hasHeightForWidth())
+        self.payment_avi_2.setSizePolicy(sizePolicy9)
         self.payment_avi_2.setMaximumSize(QSize(50, 50))
         self.payment_avi_2.setStyleSheet(u"border-radius: 25px;\n"
 "border: 2px;\n"
@@ -482,12 +547,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_11.addWidget(self.label_10)
 
-        self.label_12 = QLabel(self.frame_14)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setStyleSheet(u"color: grey;")
-        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_7 = QLabel(self.frame_14)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setStyleSheet(u"color: grey;")
 
-        self.verticalLayout_11.addWidget(self.label_12)
+        self.verticalLayout_11.addWidget(self.label_7)
 
 
         self.horizontalLayout_11.addWidget(self.frame_14)
@@ -500,16 +564,25 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.addItem(self.horizontalSpacer_2)
 
 
-        self.verticalLayout_4.addWidget(self.frame_16)
+        self.horizontalLayout_19.addWidget(self.frame_16)
+
+
+        self.verticalLayout_18.addLayout(self.horizontalLayout_19)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_18)
 
         self.payments_scroll_area.setWidget(self.scrollAreaWidgetContents)
 
-        self.verticalLayout_9.addWidget(self.payments_scroll_area)
+        self.verticalLayout_19.addWidget(self.payments_scroll_area)
 
 
-        self.verticalLayout_13.addWidget(self.frame_10)
+        self.verticalLayout_9.addLayout(self.verticalLayout_19)
 
-        self.frame_18 = QFrame(self.frame_3)
+
+        self.verticalLayout_20.addWidget(self.frame_10)
+
+        self.frame_18 = QFrame(self.frame_19)
         self.frame_18.setObjectName(u"frame_18")
         self.frame_18.setMinimumSize(QSize(0, 100))
         self.frame_18.setStyleSheet(u"background-color: rgb(62, 51, 186); border-radius: 10px;")
@@ -532,6 +605,17 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addItem(self.horizontalSpacer_4)
 
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.lineEdit = QLineEdit(self.frame_18)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setMinimumSize(QSize(0, 20))
+        self.lineEdit.setStyleSheet(u"background-color: white; border-radius: 5px;")
+
+        self.verticalLayout_14.addWidget(self.lineEdit)
+
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.label_3 = QLabel(self.frame_18)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setStyleSheet(u"color:white; \n"
@@ -540,7 +624,7 @@ class Ui_MainWindow(object):
 "")
         self.label_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.horizontalLayout_4.addWidget(self.label_3)
+        self.horizontalLayout_16.addWidget(self.label_3)
 
         self.verticalLayout_15 = QVBoxLayout()
         self.verticalLayout_15.setSpacing(0)
@@ -566,7 +650,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_15.addWidget(self.pushButton_2)
 
 
-        self.horizontalLayout_4.addLayout(self.verticalLayout_15)
+        self.horizontalLayout_16.addLayout(self.verticalLayout_15)
+
+
+        self.verticalLayout_14.addLayout(self.horizontalLayout_16)
+
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_14)
 
         self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -583,18 +673,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.addWidget(self.pushButton_3)
 
 
-        self.verticalLayout_13.addWidget(self.frame_18)
+        self.verticalLayout_20.addWidget(self.frame_18)
 
 
-        self.horizontalLayout_5.addWidget(self.frame_3)
+        self.horizontalLayout_5.addWidget(self.frame_19)
 
         self.frame_5 = QFrame(self.main_frame)
         self.frame_5.setObjectName(u"frame_5")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy10.setHorizontalStretch(0)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
-        self.frame_5.setSizePolicy(sizePolicy10)
+        sizePolicy12 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy12.setHorizontalStretch(0)
+        sizePolicy12.setVerticalStretch(0)
+        sizePolicy12.setHeightForWidth(self.frame_5.sizePolicy().hasHeightForWidth())
+        self.frame_5.setSizePolicy(sizePolicy12)
         self.frame_5.setMinimumSize(QSize(300, 0))
         self.frame_5.setStyleSheet(u"background-color: rgb(62, 51, 186); border-radius: 10px;")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
@@ -603,11 +693,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.frame_11 = QFrame(self.frame_5)
         self.frame_11.setObjectName(u"frame_11")
-        sizePolicy11 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy11.setHorizontalStretch(0)
-        sizePolicy11.setVerticalStretch(0)
-        sizePolicy11.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
-        self.frame_11.setSizePolicy(sizePolicy11)
+        sizePolicy13 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy13.setHorizontalStretch(0)
+        sizePolicy13.setVerticalStretch(0)
+        sizePolicy13.setHeightForWidth(self.frame_11.sizePolicy().hasHeightForWidth())
+        self.frame_11.setSizePolicy(sizePolicy13)
         self.frame_11.setMinimumSize(QSize(275, 130))
         self.frame_11.setMaximumSize(QSize(16777215, 130))
         self.frame_11.setSizeIncrement(QSize(0, 130))
@@ -620,8 +710,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.profile_label = QLabel(self.frame_11)
         self.profile_label.setObjectName(u"profile_label")
-        sizePolicy8.setHeightForWidth(self.profile_label.sizePolicy().hasHeightForWidth())
-        self.profile_label.setSizePolicy(sizePolicy8)
+        sizePolicy9.setHeightForWidth(self.profile_label.sizePolicy().hasHeightForWidth())
+        self.profile_label.setSizePolicy(sizePolicy9)
         self.profile_label.setMaximumSize(QSize(130, 130))
         self.profile_label.setStyleSheet(u"border-radius: 65px;\n"
 "border: 2px;\n"
@@ -653,6 +743,13 @@ class Ui_MainWindow(object):
         self.balance_label.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_5.addWidget(self.balance_label)
+
+        self.label_13 = QLabel(self.frame_5)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setStyleSheet(u"color: white;")
+        self.label_13.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_13)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -702,13 +799,18 @@ class Ui_MainWindow(object):
         self.v_label.setText("")
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Vitalik Buterin", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"@Viatlik", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"You paid @vitalik 0.05 Eth", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"Score: 78", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Vitalik Buterin", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"Dec 12, 2020", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"You paid @vitalik 0.05 Eth", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Thanks for inventing Ethereum", None))
         self.payment_avi.setText("")
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Dec 15, 2020", None))
         self.payment_avi_2.setText("")
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"@vitalik paid you 0.25 Eth", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Dec 12, 2020", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"@vitalik paid you 1.00 Eth", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"The pleasure is all mine", None))
         self.pushButton_4.setText("")
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"memo", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"0.00 Eth", None))
         self.pushButton.setText("")
         self.pushButton_2.setText("")
@@ -717,6 +819,7 @@ class Ui_MainWindow(object):
         self.name_label.setText(QCoreApplication.translate("MainWindow", u"Aaron Kopplin", None))
         self.username_label.setText(QCoreApplication.translate("MainWindow", u"@aaronkopplin", None))
         self.balance_label.setText(QCoreApplication.translate("MainWindow", u"Balance: 0 Eth", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Score: 152", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Logged In", None))
     # retranslateUi
 
