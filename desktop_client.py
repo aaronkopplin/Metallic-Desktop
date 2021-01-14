@@ -1,8 +1,11 @@
 import sys
 import os
 from PySide6 import QtWidgets, QtCore, QtGui
-import PySide6
+from PIL import Image
 import re
+
+from image_rounder import mask_image
+
 
 class MetallicDesktopClient(QtWidgets.QMainWindow):
     def __init__(self):
@@ -22,6 +25,20 @@ class MetallicDesktopClient(QtWidgets.QMainWindow):
         self.ui.maximize_button.clicked.connect(self.maximize)
         self.ui.close_button.clicked.connect(self.close)
         self.ui.dragable_frame.mouseMoveEvent = self.moveWindow
+
+        pixmap = mask_image(open("vitalik.png", "rb").read(), "png", 50)
+        self.ui.v_label.setPixmap(pixmap)
+        self.ui.payment_avi_2.setPixmap(pixmap)
+
+        im1 = Image.open(r'profilepic.jpg')
+        im1.save(r'profilepic.png')
+
+        profile_pixmap = mask_image(open("profilepic.png", "rb").read(), "png", 130)
+        self.ui.profile_label.setPixmap(profile_pixmap)
+
+        profile_pixmap = mask_image(open("profilepic.png", "rb").read(), "png", 50)
+        self.ui.payment_avi.setPixmap(profile_pixmap)
+
 
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
@@ -48,5 +65,6 @@ class MetallicDesktopClient(QtWidgets.QMainWindow):
 
 
 app = QtWidgets.QApplication(sys.argv)
+app.setWindowIcon(QtGui.QIcon('logo.jpeg'))
 client = MetallicDesktopClient()
 sys.exit(app.exec_())
