@@ -2,22 +2,22 @@ from PySide6.QtWidgets import *
 from NewGui.ContactsFrame import ContactsFrame
 from NewGui.MessagesFrame import MessagesFrame
 from NewGui.ProfileStackFrame import ProfileStackFrame
+from NewGui.Frame import *
 
 
-class BodyFrame(QFrame):
+class BodyFrame(Frame):
     def __init__(self):
-        super().__init__()
-        self.layout = QHBoxLayout()
-        self.setLayout(self.layout)
+        super().__init__(layout=LayoutDirection.HORIZONTAL)
+        self.layout.setContentsMargins(0, 0, 0, 0)
 
         # contacts frame
         self.contacts_frame = ContactsFrame()
-        self.layout.addWidget(self.contacts_frame)
+        self.add_widget(self.contacts_frame)
 
         # messages frame
         self.messages_frame = MessagesFrame()
-        self.layout.addWidget(self.messages_frame)
+        self.add_widget(self.messages_frame)
 
         # profile stack frame
         self.profile_stack_frame = ProfileStackFrame()
-        self.layout.addWidget(self.profile_stack_frame)
+        self.add_widget(self.profile_stack_frame)

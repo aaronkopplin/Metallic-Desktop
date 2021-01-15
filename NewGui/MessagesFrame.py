@@ -1,32 +1,27 @@
 from PySide6.QtWidgets import *
-from NewGui.Stylesheet import *
+from NewGui.Stylesheet import GuiColor
 from NewGui.MessageFrame import MessageFrame
 from NewGui.PaymentFrame import PaymentFrame
 from PySide6.QtCore import Qt
+from NewGui.Frame import *
 
 
-class MessagesFrame(QFrame):
+class MessagesFrame(Frame):
     def __init__(self):
-        super().__init__()
-        self.setStyleSheet("background-color: none; border-radius: 5px;")
-
-        # layout
-        self.layout = QVBoxLayout()
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(self.layout)
+        super().__init__(content_margins=False)
 
         # username label
         self.username_label = QLabel("Vitalik Buterin")
         self.username_label.setFixedHeight(50)
-        self.username_label.setStyleSheet(s_primary_color + " font-size: 25px; color: white; ")
+        self.username_label.setStyleSheet(GuiColor.LIGHT_SECONDARY.value + " font-size: 20px; " + GuiColor.TEXT.value)
         self.username_label.setAlignment(Qt.AlignCenter)
-        self.layout.addWidget(self.username_label)
+        self.add_widget(self.username_label)
 
         # message frame
         self.message_frame = MessageFrame()
-        self.layout.addWidget(self.message_frame)
+        self.add_widget(self.message_frame)
 
         # payment frame
         self.payment_frame = PaymentFrame()
-        self.layout.addWidget(self.payment_frame)
+        self.add_widget(self.payment_frame)
 

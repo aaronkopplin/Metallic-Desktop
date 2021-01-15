@@ -1,70 +1,54 @@
 from PySide6.QtWidgets import *
 from NewGui.Stylesheet import *
+from NewGui.TextLabel import TextLabel
 from PySide6.QtCore import Qt
 from NewGui.ImageRounder import mask_image
+from NewGui.Frame import *
 
 
-class Message(QFrame):
+class Message(Frame):
     def __init__(self):
-        super().__init__()
-        self.setStyleSheet("background-color: white;")
-        self.layout = QVBoxLayout()
-        self.layout.setContentsMargins(0, 0, 0, 0)
-        self.setLayout(self.layout)
+        super().__init__(color=GuiColor.NONE, content_margins=False)
+        self.setFixedHeight(100)
 
         # date label
-        self.date_label = QLabel("Dec 12, 2021")
+        self.date_label = TextLabel("Dec 12, 2021", Qt.AlignHCenter)
         self.date_label.setFixedHeight(20)
-        self.date_label.setStyleSheet("color: grey; background-color: white")
-        self.date_label.setAlignment(Qt.AlignCenter)
-        self.layout.addWidget(self.date_label)
-
-        # body
-        self.body = QFrame()
-        self.body.setFixedHeight(75)
-        self.layout.addWidget(self.body)
-        self.body.setStyleSheet(s_primary_color)
-        self.body_layout = QVBoxLayout()
-        self.body.setContentsMargins(0, 0, 0, 0)
-        self.body.setLayout(self.body_layout)
+        self.add_widget(self.date_label)
 
         # message content
-        self.message_content = QFrame()
-        self.body_layout.addWidget(self.message_content)
-        self.message_content_layout = QHBoxLayout()
-        self.message_content_layout.setContentsMargins(0, 0, 0, 0)
-        self.message_content.setLayout(self.message_content_layout)
+        self.message_content = Frame(color=GuiColor.DARK_PRIMARY, layout=LayoutDirection.HORIZONTAL)
+        self.add_widget(self.message_content)
 
-        # message and memo
-        self.mesage_and_memo = QFrame()
-        self.message_content_layout.addWidget(self.mesage_and_memo)
-        self.mesage_and_memo_layout = QVBoxLayout()
-        self.mesage_and_memo.setLayout(self.mesage_and_memo_layout)
-        self.message = QLabel("You paid @vitalik 0.005 Eth")
-        self.message.setStyleSheet("color: white;")
-        self.message.setAlignment(Qt.AlignRight)
-        self.mesage_and_memo_layout.addWidget(self.message)
-        self.memo = QLabel("Thanks for inventing Ethereum")
-        self.memo.setStyleSheet("color: grey;")
-        self.memo.setAlignment(Qt.AlignRight)
-        self.mesage_and_memo_layout.addWidget(self.memo)
+        # move the message contents to the right
+        self.resize_message_frame = Frame(layout=LayoutDirection.HORIZONTAL)
+        self.resize_message_frame.setFixedHeight(75)
+        self.resize_message_frame.layout.setContentsMargins(0, 0, 0, 0)
+        self.add_widget(self.resize_message_frame)
+        self.resize_message_frame.add_item(QSpacerItem(10, 10, QSizePolicy.Expanding, QSizePolicy.Fixed))
+        self.resize_message_frame.add_widget(self.message_content)
+
+        # message and memo frame
+        self.message_and_memo = Frame()
+        self.message_content.add_widget(self.message_and_memo)
+
+        # message
+        self.message = TextLabel("You paid @vitalik 0.005 Eth", Qt.AlignRight)
+        self.message_and_memo.add_widget(self.message)
+
+        # memo
+        self.memo = TextLabel("Thanks for inventing Ethereum", Qt.AlignRight)
+        self.message_and_memo.add_widget(self.memo)
 
         # picture
-        self.picture = QLabel("")
+        self.picture = TextLabel("")
         self.picture.setStyleSheet("border-radius: 25px; "
                                    "max-height: 50px; "
                                    "max-width: 50px;")
         self.pixmap = mask_image(open("icons/profilepic.png", "rb").read(), "png", 50)
         self.picture.setPixmap(self.pixmap)
-        self.message_content_layout.addWidget(self.picture)
+        self.message_content.add_widget(self.picture)
 
-        # move the message contents to the right
-        self.resize_message_frame = QFrame()
-        self.layout.addWidget(self.resize_message_frame)
-        self.resize_message_layout = QHBoxLayout()
-        self.resize_message_layout.setContentsMargins(0, 0, 0, 0)
-        self.resize_message_frame.setLayout(self.resize_message_layout)
-        self.resize_message_layout.addSpacerItem(QSpacerItem(10, 10, QSizePolicy.Expanding, QSizePolicy.Fixed))
-        self.resize_message_layout.addWidget(self.body)
+
 
 
