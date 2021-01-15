@@ -3,15 +3,14 @@ import os
 from PySide6 import QtWidgets, QtCore, QtGui
 from PIL import Image
 import re
-
 from image_rounder import mask_image
-
+from Profile import Profile
 
 class MetallicDesktopClient(QtWidgets.QMainWindow):
     def __init__(self):
         super(MetallicDesktopClient, self).__init__()
-        os.system("pyside6-uic gui.ui > gui.py")
-        from gui import Ui_MainWindow
+        os.system("pyside6-uic Gui.ui > Gui.py")
+        from Gui import Ui_MainWindow
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.configure()
@@ -26,18 +25,24 @@ class MetallicDesktopClient(QtWidgets.QMainWindow):
         self.ui.close_button.clicked.connect(self.close)
         self.ui.dragable_frame.mouseMoveEvent = self.moveWindow
 
-        pixmap = mask_image(open("vitalik.png", "rb").read(), "png", 50)
-        self.ui.v_label.setPixmap(pixmap)
-        self.ui.payment_avi_2.setPixmap(pixmap)
+        self.profile_layout = QtWidgets.QGridLayout()
+        self.profile_layout.addWidget(QtWidgets.QLabel("test"), 0, 0)
+        self.ui.view_profile_page.setLayout(self.profile_layout)
+        print("hello world")
+        # pixmap = mask_image(open("icons/vitalik.png", "rb").read(), "png", 50)
+        # self.ui.v_label.setPixmap(pixmap)
+        # self.ui.payment_avi_2.setPixmap(pixmap)
+        #
+        # im1 = Image.open(r'icons/profilepic.jpg')
+        # im1.save(r'icons/profilepic.png')
+        #
+        # profile_pixmap = mask_image(open("icons/profilepic.png", "rb").read(), "png", 130)
+        # self.ui.profile_label.setPixmap(profile_pixmap)
+        #
+        # profile_pixmap = mask_image(open("icons/profilepic.png", "rb").read(), "png", 50)
+        # self.ui.payment_avi.setPixmap(profile_pixmap)
 
-        im1 = Image.open(r'profilepic.jpg')
-        im1.save(r'profilepic.png')
-
-        profile_pixmap = mask_image(open("profilepic.png", "rb").read(), "png", 130)
-        self.ui.profile_label.setPixmap(profile_pixmap)
-
-        profile_pixmap = mask_image(open("profilepic.png", "rb").read(), "png", 50)
-        self.ui.payment_avi.setPixmap(profile_pixmap)
+        # self.profile = ProfileWidget(self.ui.view_profile_page)
 
 
     def mousePressEvent(self, event):
@@ -65,6 +70,6 @@ class MetallicDesktopClient(QtWidgets.QMainWindow):
 
 
 app = QtWidgets.QApplication(sys.argv)
-app.setWindowIcon(QtGui.QIcon('logo.jpeg'))
+app.setWindowIcon(QtGui.QIcon('icons/logo.jpeg'))
 client = MetallicDesktopClient()
 sys.exit(app.exec_())
