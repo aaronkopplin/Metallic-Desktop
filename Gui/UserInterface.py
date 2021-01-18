@@ -10,7 +10,14 @@ from HeaderFrame import HeaderFrame
 
 
 class MainWindow(QMainWindow):
-    def __init__(self, create_account_method, login_method):
+    def __init__(self,
+                 create_account_method,
+                 login_method,
+                 wallet_exists: bool,
+                 receive_address: str,
+                 copy_to_clipboard,
+                 list_of_existing_accounts,
+                 cost_to_create_account):
         super().__init__(None)
 
         # method calls
@@ -34,15 +41,6 @@ class MainWindow(QMainWindow):
         self.frame.add_widget(self.stack)
 
         # login screen
-        wallet_exists = False
-        if len(glob.glob("Wallets/*_wallet.json")) == 0:
-            print("wallet not found")
-        if len(glob.glob("Wallets/*_wallet.json")) > 1:
-            print("more than one wallet found")
-        if len(glob.glob("Wallets/*_wallet.json")) == 1:
-            wallet_exists = True
-
-        # login screen
         self.login_screen = LoginScreen(wallet_exists)
         self.stack.addWidget(self.login_screen)
         self.login_screen.create_account_button.clicked.connect(lambda: self.stack.setCurrentIndex(1))
@@ -50,15 +48,13 @@ class MainWindow(QMainWindow):
         self.stack.setCurrentIndex(0)
 
         # create account screen
-        self.create_account_screen = CreateAccountScreen()
+        self.create_account_screen = CreateAccountScreen(receive_address,
+                                                         copy_to_clipboard,
+                                                         list_of_existing_accounts,
+                                                         cost_to_create_account)
         self.stack.addWidget(self.create_account_screen)
-        self.create_account_screen.create_account_button.clicked.connect(self.create_account_event)
+        # self.create_account_screen.activate_account.activate_account_button.clicked.connect(self.create_account_event)
         self.create_account_screen.login_button.clicked.connect(lambda: self.stack.setCurrentIndex(0))
-
-        # activate account screen
-        self.activate_account_screen = ActivateAccountScreen()
-        self.stack.addWidget(self.activate_account_screen)
-        self.activate_account_screen.activate_account_button.clicked.connect(lambda: self.stack.setCurrentIndex(3))
 
         # app
         self.app = App()

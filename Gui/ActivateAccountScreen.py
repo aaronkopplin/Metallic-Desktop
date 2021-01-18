@@ -7,7 +7,7 @@ from GuiButton import GuiButton
 class ActivateAccountScreen(Frame):
     def __init__(self):
         super().__init__(content_margins=False,
-                         color=GuiColor.DARK_PRIMARY,
+                         color=GuiColor.LIGHT_SECONDARY,
                          border_radius=False)
 
         self.container = Frame()

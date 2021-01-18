@@ -1,30 +1,16 @@
 import json
-from solcx import compile_standard
+from solcx import compile_standard, compile_source
+import solcx
 from web3 import Web3
 
 
 def compile_contract(file_path: str, file_name: str, contract_name: str):
     with open(file_path) as contract_file:
         contract_code = contract_file.read()
-        compiled_contract = compile_standard({
-            'language': 'Solidity',
-            'sources': {
-                file_name: {
-                    'content': contract_code
-                }
-            },
-            'settings': {
-                'outputSelection': {
-                    '*': {
-                        '*': [
-                            'metadata', 'evm.bytecode', 'evm.bytecode.sourceMap'
-                        ]
-                    }
-                }
-            }
-        })
-        bytecode = compiled_contract['contracts'][file_name][contract_name]['evm']['bytecode']['object']
-        abi = json.loads(compiled_contract['contracts'][file_name][contract_name]['metadata'])['output']['abi']
+        compiled_contract = compile_source(contract_code, optimize=True, optimize_runs=9999)
+        abi = compiled_contract['<stdin>:Metallic']['abi']
+        bytecode = compiled_contract['<stdin>:Metallic']['bin']
+
         return bytecode, abi
 
 

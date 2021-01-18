@@ -4,6 +4,7 @@ from UserInterface import MainWindow
 from web3 import Web3
 import sys
 import json
+import glob
 
 
 class DesktopClient:
@@ -18,10 +19,32 @@ class DesktopClient:
         self.create_gui()
 
     def create_gui(self):
-        app = QApplication([])
-        self.window = MainWindow(self.create_account, self.login)
+        # login screen
+        num_wallets = len(glob.glob("Wallets/*_wallet.json"))
+        if num_wallets == 0:
+            print("wallet not found")
+            print("creating account")
+            self.account = self.w3.eth.account.create()
+
+        if num_wallets > 1:
+            print("more than one wallet found")
+
+        wallet_exists = num_wallets == 1
+
+        self.app = QApplication([])
+        self.window = MainWindow(self.create_account,
+                                 self.login, wallet_exists,
+                                 self.account.address,
+                                 self.copy_to_clipboard,
+                                 self.contract.functions.getAccounts().call(),
+                                 self.contract.functions.addAccount(bytes("1234123412341234", encoding='utf8'),
+                                                                    bytes("aaaaaaaaaaaaaaaa", encoding='utf8'))
+                                                                    .estimateGas())
         self.window.show()
-        sys.exit(app.exec_())
+        sys.exit(self.app.exec_())
+
+    def copy_to_clipboard(self, text):
+        self.app.clipboard().setText(text)
 
     def login(self):
         self.username = self.window.login_username()
@@ -66,8 +89,6 @@ class DesktopClient:
             print("passwords do not match!")
             return
 
-        print("creating account")
-        self.account = self.w3.eth.account.create()
         self.username = self.window.create_account_username()
         self.password = self.window.create_account_password()
 
@@ -75,6 +96,7 @@ class DesktopClient:
         with open("Wallets/" + self.wallet_file_name, 'w') as json_file:
             wallet = self.account.encrypt(self.password)
             json.dump(wallet, json_file)
+
 
     def username_exists(self, username: str):
         print(self.contract.functions.getAddress(username).call())
