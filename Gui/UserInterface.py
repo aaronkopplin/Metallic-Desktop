@@ -40,21 +40,21 @@ class MainWindow(QMainWindow):
         self.stack = QStackedWidget()
         self.frame.add_widget(self.stack)
 
-        # login screen
-        self.login_screen = LoginScreen(wallet_exists)
-        self.stack.addWidget(self.login_screen)
-        self.login_screen.create_account_button.clicked.connect(lambda: self.stack.setCurrentIndex(1))
-        self.login_screen.login_button.clicked.connect(self.login_event)
-        self.stack.setCurrentIndex(0)
-
-        # create account screen
-        self.create_account_screen = CreateAccountScreen(receive_address,
-                                                         copy_to_clipboard,
-                                                         list_of_existing_accounts,
-                                                         cost_to_create_account)
-        self.stack.addWidget(self.create_account_screen)
-        # self.create_account_screen.activate_account.activate_account_button.clicked.connect(self.create_account_event)
-        self.create_account_screen.login_button.clicked.connect(lambda: self.stack.setCurrentIndex(0))
+        # # login screen
+        # self.login_screen = LoginScreen(wallet_exists)
+        # self.stack.addWidget(self.login_screen)
+        # self.login_screen.create_account_button.clicked.connect(lambda: self.stack.setCurrentIndex(1))
+        # self.login_screen.login_button.clicked.connect(self.login_event)
+        # self.stack.setCurrentIndex(2)
+        #
+        # # create account screen
+        # self.create_account_screen = CreateAccountScreen(receive_address,
+        #                                                  copy_to_clipboard,
+        #                                                  list_of_existing_accounts,
+        #                                                  cost_to_create_account)
+        # self.stack.addWidget(self.create_account_screen)
+        # # self.create_account_screen.activate_account.activate_account_button.clicked.connect(self.create_account_event)
+        # self.create_account_screen.login_button.clicked.connect(lambda: self.stack.setCurrentIndex(0))
 
         # app
         self.app = App()
