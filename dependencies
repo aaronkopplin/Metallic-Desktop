@@ -1,2 +1,7 @@
 pip3 install pyqrcode
 pip3 install pypng
+pip3 install pyside6
+pip3 install web3
+
+# optional if you are getting an open gl error
+sudo apt install libopengl0 -y
